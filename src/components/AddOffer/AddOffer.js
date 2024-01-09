@@ -28,8 +28,9 @@ const AddOffer = () => {
             <hr className="heading-line mb-3" />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("title")} placeholder="Title" />
-                <input {...register("img")} placeholder="img-url" />
+                <input {...register("img")} placeholder="Image-Url" />
                 <input type="number" {...register("price")} placeholder="Price" />
+                <input {...register("videoSource")} placeholder="Video-Url" />
 
                 <textarea {...register("descriprion")}
                     placeholder="description" className="form-control" id="exampleFormControlTextarea1" rows="3" />

@@ -12,6 +12,7 @@ const OurTourGallery = () => {
             <div class="col">
                 <div class="card h-100">
                     <img src="https://img.freepik.com/free-photo/woman-taking-photo-rural-surroundings_23-2149125495.jpg?size=626&ext=jpg&uid=R54822369&ga=GA1.1.305507892.1696573419&semt=ais" class="card-img-top" alt="..."/>
+                   
                 </div>
             </div>
             <div class="col">

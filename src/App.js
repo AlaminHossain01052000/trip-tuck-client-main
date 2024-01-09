@@ -13,7 +13,11 @@ import AddOffer from './components/AddOffer/AddOffer';
 import NotFound from './components/NotFound/NotFound';
 import Register from './components/Register/Register';
 import AdminRoute from './components/AdminRoute/AdminRoute';
+import PaymentForm from './components/PaymentForm/PaymentForm';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
+const stripePromise = loadStripe('pk_test_51JvnacKB2JOo4D0XAUdhDzZ6TqtmGp2vpGMIXXSxtPKBJOo1cmcb3SlAga09S4J9nyLpCgs4dEyJ126BbM8sE1mm00BCQsgnSt');
 function App() {
 
   return (
@@ -27,6 +31,7 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route  path="*" element={NotFound}/>
+            
             <Route path="/bookingform/:id"
               element={
                 <PrivateRoute>
@@ -38,6 +43,16 @@ function App() {
               element={
                 <PrivateRoute>
                   <MyBookings/>
+                </PrivateRoute>   
+              }
+            />
+            <Route path="/paymentForm"
+              element={
+                <PrivateRoute>
+                  <Elements stripe={stripePromise}>
+                  <PaymentForm/>
+                  </Elements>
+                  
                 </PrivateRoute>   
               }
             />

@@ -16,6 +16,7 @@
 #our-offers .card-body p{
     font-family: 'Zen Antique Soft', serif;
 }
+
 #our-offers .card-img-top{
     
     height: 200px;
@@ -38,12 +39,26 @@
     cursor: pointer;
     transition: .5s;
 }
-.book-now-para{
+
+
+.btn-book-now{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #DC143C;
+    border:0px;
+    color:white;
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
-.book-now-para{
-    color:#DC3545;
-}
-.book-now-para:hover{
-    color:#0D6EFD;   
+.btn-book-now:hover{
+
+    border-radius: 12px;
+    background-color: rgba(220, 20, 60,0.9);
+    border:0px;
+    
 }

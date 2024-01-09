@@ -34,7 +34,7 @@ console.log(user)
             data.price = myOffer.price;
             data.totalCost = (data.numberOfPeople * myOffer?.price);
             data.selectedOffer = myOffer.title;
-
+            data.paymentStatus="unpaid"
             fetch("http://localhost:5000/bookings", {
                 method: "POST",
                 headers: {
