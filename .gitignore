@@ -27,3 +27,5 @@ src/keys/
 
 # Ignore the sendEmail.js file
 src/utilities/sendEmail.js
+# Local Netlify folder
+.netlify
