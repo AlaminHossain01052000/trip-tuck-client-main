@@ -26,7 +26,7 @@ const ShowOffer = ({ offer }) => {
                 onMouseEnter={()=>setIsHovered(1)}
                 onMouseLeave={()=>setIsHovered(0)}
                 >
-                    {isHovered 
+                    {isHovered&&videoSource
                     ? 
                     (
                         <iframe 

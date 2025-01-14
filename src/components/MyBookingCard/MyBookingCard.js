@@ -50,7 +50,13 @@ const MyBookingCard = ({ myBookedOffer }) => {
                             <p className='pay-now-button-2' onClick={handleNavigatingToPaymentForm}>Pay Now</p>
                         }
                     </Card.Text>
-                    <Button variant="danger" onClick={() => handleDeletingOffer(_id)} disabled={paymentStatus==='paid'}>Cancel</Button>
+                    {paymentStatus==='paid'?
+                    <Button variant="danger" disabled>Cancel</Button>
+                    :
+                    <Button variant="danger"  onClick={() => handleDeletingOffer(_id)}>Cancel</Button>
+                    }
+                    
+                    
                 </Card.Body>
             </Card>
             

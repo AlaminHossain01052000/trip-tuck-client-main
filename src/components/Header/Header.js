@@ -18,21 +18,29 @@ const Header = () => {
                         <Nav className="w-100 justify-content-between align-items-center" activeKey="/home">
 
                             <Nav.Item>
-                                <Nav.Link href="/home" className="d-flex align-items-center"><img src="https://i.ibb.co/1fJ7t29/holiday-logo-travel-summer-beach-260nw-597385868.png" className="w-25" alt="" /><span className="ms-2 font-zen fs-5">Trip-Tuck</span></Nav.Link>
+                                <Nav.Link as={Link} to={admin?`/allbookings`:`/home`} className="d-flex align-items-center"><img src="https://i.ibb.co/1fJ7t29/holiday-logo-travel-summer-beach-260nw-597385868.png" className="w-25" alt="" /><span className="ms-2 font-zen fs-5">Trip Tuck</span></Nav.Link>
                             </Nav.Item>
                             <div className="d-lg-flex">
-
+                                {!admin&&
                                 <Nav.Item>
                                     <Nav.Link as={Link} to="/home">Home</Nav.Link>
                                 </Nav.Item>
+                                }
+                                
 
 
 
 
 
                                 {
-                                    user?.email && <Nav.Item>
+                                    user?.email && !admin&&<Nav.Item>
                                         <Nav.Link as={Link} to="/myBookings">My Bookings</Nav.Link>
+                                    </Nav.Item>
+
+                                }
+                                {
+                                    user?.email && !admin&&<Nav.Item>
+                                        <Nav.Link as={Link} to="/myProfile">My Profile</Nav.Link>
                                     </Nav.Item>
 
                                 }

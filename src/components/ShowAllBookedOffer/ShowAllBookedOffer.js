@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const ShowAllBookedOffer = (props) => {
     const [bookings, setBookings] = useState([]);
     const [approvableTrip, setApprovableTrip] = useState({});
-    const { _id, name, email, date, selectedOffer, totalCost, status } = props.allBookedOffer;
+    const { _id, name, email, date, selectedOffer, totalCost, status,paymentStatus } = props.allBookedOffer;
     useEffect(() => {
         fetch("http://localhost:5000/bookings")
             .then(res => res.json())
@@ -15,9 +15,12 @@ const ShowAllBookedOffer = (props) => {
                     }
                 })
             });
-    }, [bookings])
+    }, [bookings,_id])
     const handleStatusUpdating = id => {
-
+        if(!paymentStatus||paymentStatus==='unpaid'){
+            alert("Payment is not completed");
+            return
+        }
         approvableTrip.status = "approved";
 
         fetch(`http://localhost:5000/bookings/${id}`, {
@@ -64,6 +67,7 @@ const ShowAllBookedOffer = (props) => {
             <td>{date}</td>
             <td>{selectedOffer}</td>
             <td>{totalCost}</td>
+            <td>{paymentStatus==='paid'?"Paid":'Unpaid'}</td>
             <td>{status}</td>
             <td><button className="btn btn-primary" onClick={() => handleStatusUpdating(_id)}>Ok</button></td>
 

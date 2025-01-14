@@ -10,11 +10,11 @@ const Footer = () => {
                     <a href="/" className="fw-bold  text-decoration-none footer-link">| Terms & Conditions</a>
                 </div>
                 <div>
-                    <img src="https://i.ibb.co/1fJ7t29/holiday-logo-travel-summer-beach-260nw-597385868.png" className="w-25" alt="" /><span className="ms-2 font-zen fs-5">Trip-Tuck</span>
+                    <img src="https://i.ibb.co/1fJ7t29/holiday-logo-travel-summer-beach-260nw-597385868.png" className="w-25" alt="" /><span className="ms-2 font-zen fs-5">Trip Tuck</span>
 
                 </div>
                 <div>
-                    <span className="fw-bold text-danger">&#169; Trip Tuck 2021</span>
+                    <span className="fw-bold text-danger">&#169; Trip Tuck 2024</span>
                 </div>
             </Container>
         </section>

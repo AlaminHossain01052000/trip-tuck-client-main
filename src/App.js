@@ -16,7 +16,7 @@ import AdminRoute from './components/AdminRoute/AdminRoute';
 import PaymentForm from './components/PaymentForm/PaymentForm';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-
+import UserProfile from './components/UserProfile/UserProfile';
 const stripePromise = loadStripe('pk_test_51JvnacKB2JOo4D0XAUdhDzZ6TqtmGp2vpGMIXXSxtPKBJOo1cmcb3SlAga09S4J9nyLpCgs4dEyJ126BbM8sE1mm00BCQsgnSt');
 function App() {
 
@@ -53,6 +53,13 @@ function App() {
                   <PaymentForm/>
                   </Elements>
                   
+                </PrivateRoute>   
+              }
+            />
+            <Route path="/myProfile"
+              element={
+                <PrivateRoute>
+                    <UserProfile/>
                 </PrivateRoute>   
               }
             />

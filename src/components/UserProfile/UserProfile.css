@@ -1,0 +1,21 @@
+.user-profile {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .user-profile h2 {
+    text-align: center;
+  }
+  
+  .user-profile form {
+    margin-top: 20px;
+  }
+  
+  .user-profile form label {
+    font-weight: bold;
+  }
+  
+  .user-profile form .btn-primary {
+    margin-top: 20px;
+  }
+  

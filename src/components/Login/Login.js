@@ -3,13 +3,14 @@ import { useNavigate, useLocation } from 'react-router';
 import useFirebase from '../../hooks/useFirebase';
 import "./Login.css";
 import { Link } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 const Login = () => {
     
     const [error, setError] = useState(false)
     const location = useLocation();
     const navigate = useNavigate();
-    const redirect_uri = location.state?.from || "/home";
-    const {  loading,loginUser,googleLogIn } = useFirebase();
+   
+    const {  loading,loginUser,googleLogIn,forgetPassword } = useFirebase();
     const [formData, setFormData] = useState({
         
         email: '',
@@ -34,7 +35,19 @@ const Login = () => {
     const handleGoogleLogIn = () => {
       googleLogIn(navigate,location)
     }
+    const handleForgetPassword=()=>{
+      if(!formData?.email||formData?.email?.length===0){
+        alert("Email is required!!!");
+        return
+      }
+      alert(`A message is send to your email ${formData.email}. Follow the procedure please`)
+      forgetPassword(formData.email);
+      
+    }
     return (
+      loading?
+      <Spinner animation="border" variant="dark" />
+      :
         <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
         <h2 className='register-form-heading'>Login</h2>
@@ -66,9 +79,13 @@ const Login = () => {
 
 
         <button type="submit" className='btn btn-danger'>Login</button>
+        <div>
+        <button type="button" className="btn btn-primary" onClick={handleForgetPassword}>Forget Password</button>
+
+        </div>
         {error&&<h6>{error}</h6>}
       </form>
-
+      
       <div className="google-signup">
         <p>Or sign in using</p>
         <button className='btn btn-primary' onClick={handleGoogleLogIn}>

@@ -1,11 +1,13 @@
 
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './PaymentForm.css';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { emailJsKey } from '../../keys/emailJsKey';
 import  emailjs  from '@emailjs/browser';
+import sendEmail from '../../utilities/sendEmail';
 
 
 
@@ -20,44 +22,11 @@ const [error,setError]=useState("")
 const [bookingInfo,setBookingInfo]=useState({})
 
 
-// const sendEmail = (e) => {
-//     e.preventDefault();
-//     console.log(form2.current)
-// // try {
-// //     emailjs.sendForm('service_uh2zv5a', 'template_othd4tm', form2.current, 'ExZoup8ZCGDP-bVZk')
-// //       .then((result) => {
-// //           console.log(result.text);
-// //       }, (error) => {
-// //           console.log(error.text);
-// //       }); 
-// // } catch (error) {
-// //     console.log(error)
-// // }
-    
-//   };
-  const sendEmail = () => {
-    console.log(bookingInfo.name,bookingInfo.email)
-    emailjs.send("service_uh2zv5a", "template_othd4tm", {
-      // Replace with your template parameters
-      to_name: bookingInfo.name,
-      to_email: bookingInfo.email,
-      message: `You payment for ${bookingInfo.selectedOffer} of Taka ${bookingInfo.totalCost} is successful. Enjoy your trip!`,
-      from_name:'trip-tuck'
-      // ...other details
-    })
-    .then((response) => {
-      console.log("Email sent successfully!", response);
-      // Handle successful email sending, e.g., display a success message
-    })
-    .catch((error) => {
-      console.error("Failed to send email:", error);
-      // Handle email sending error, e.g., display an error message
-    });
-  };
+ 
 
 useEffect(()=>{
     fetch( `http://localhost:5000/bookings/singleBooking/${location.state}`).then(res=>res.json()).then(data=>setBookingInfo(data))
-    emailjs.init("ExZoup8ZCGDP-bVZk");
+    emailjs.init(emailJsKey);
 },[location.state])
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -106,7 +75,7 @@ useEffect(()=>{
             console.log(data)
             if(data.acknowledged){
                 alert("Payment is successful!Get ready for the amazing experience of your life");
-                sendEmail();
+                sendEmail(bookingInfo);
                 navigate('/myBookings')
             }
             

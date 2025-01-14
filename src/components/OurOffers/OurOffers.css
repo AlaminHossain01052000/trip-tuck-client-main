@@ -11,3 +11,21 @@
     width: 25%;
    
 }
+/* Optional: Customize the search box appearance */
+.form-inline {
+    display: flex; /* Center the search box horizontally */
+  }
+  
+  .bg-light {
+    background-color: #ddd !important; /* Use a lighter background */
+  }
+  
+  .form-control {
+    border-radius: 5px; /* Add rounded corners */
+    padding: 0.75rem 1rem; /* Adjust padding if needed */
+  }
+  
+  .input-group-prepend .input-group-text {
+    border-right: 0; /* Remove right border */
+  }
+  

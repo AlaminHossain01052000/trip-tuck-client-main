@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Ignore the src/keys folder
+src/keys/
+
+# Ignore the sendEmail.js file
+src/utilities/sendEmail.js

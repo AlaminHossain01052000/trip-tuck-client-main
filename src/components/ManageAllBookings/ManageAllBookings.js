@@ -9,6 +9,7 @@ const ManageAllBookings = () => {
             .then(data => setAllBookedOffers(data))
     }, [])
     return (
+        allBookedOffers?.length>0?
         <div className="mt-5 d-flex justify-content-center" style={{ marginBottom: "380px" }}>
 
 
@@ -19,6 +20,7 @@ const ManageAllBookings = () => {
                     <th>Date</th>
                     <th>Booked Offers</th>
                     <th>Total Cost</th>
+                    <th>Payment Status</th>
                     <th>Status</th>
                     <th>Approve</th>
                     <th>Delete</th>
@@ -37,6 +39,8 @@ const ManageAllBookings = () => {
 
 
         </div>
+        :
+        <div>Loading...</div>
     );
 };
 
