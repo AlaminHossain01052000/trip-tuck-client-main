@@ -1,7 +1,7 @@
 # Trip Tuck
 
 ## Live Links
-- Frontend: to be added
+- Frontend: https://trip-tuck.web.app/
 - Backend: https://trip-tuck-2-server.onrender.com/
 ## Code Links:
 
