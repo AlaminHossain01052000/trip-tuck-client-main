@@ -28,7 +28,7 @@ const OurOffers = () => {
     useEffect(() => {
         setLoading(true)
         try {
-            fetch("http://localhost:5000/offers")
+            fetch("https://trip-tuck-2-server.onrender.com/offers")
             .then(res => res.json())
             .then(data => {
                 setOffers(data)

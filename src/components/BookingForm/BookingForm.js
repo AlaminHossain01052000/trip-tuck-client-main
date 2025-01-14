@@ -21,7 +21,7 @@ const BookingForm = () => {
     const [date,setDate]=useState('')
     useEffect(() => {
         console.log(id)
-        fetch(`http://localhost:5000/offers/${id}`)
+        fetch(`https://trip-tuck-2-server.onrender.com/offers/${id}`)
             .then(res => res.json())
             .then(data => {
 
@@ -32,7 +32,7 @@ const BookingForm = () => {
     useEffect(() => {
         const fetchUserData = async () => {
           try {
-            const response = await fetch(`http://localhost:5000/user/single?email=${user.email}`);
+            const response = await fetch(`https://trip-tuck-2-server.onrender.com/user/single?email=${user.email}`);
             const data = await response.json();
             
             setUserData(data);
@@ -48,7 +48,7 @@ const BookingForm = () => {
     //   const handleSave = async (e) => {
     //     e.preventDefault();
     //     try {
-    //       await fetch(`http://localhost:5000/user/update/${userData._id}`, {
+    //       await fetch(`https://trip-tuck-2-server.onrender.com/user/update/${userData._id}`, {
     //         method: 'PUT',
     //         headers: {
     //           'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ const BookingForm = () => {
                 contact
             }
            
-            fetch("http://localhost:5000/bookings", {
+            fetch("https://trip-tuck-2-server.onrender.com/bookings", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -115,7 +115,7 @@ const BookingForm = () => {
                         contact:data.contact
                     }
                     try {
-                         fetch(`http://localhost:5000/user/update/${userData._id}`, {
+                         fetch(`https://trip-tuck-2-server.onrender.com/user/update/${userData._id}`, {
                                 method: 'PUT',
                                 headers: {
                                   'Content-Type': 'application/json'

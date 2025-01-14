@@ -10,7 +10,7 @@ const MyBookings = () => {
     const navigate=useNavigate();
     const [myBookedOffers, setMyBookedOffers] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/bookings/${user?.email}`)
+        fetch(`https://trip-tuck-2-server.onrender.com/bookings/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyBookedOffers(data))
     }, [myBookedOffers,user])

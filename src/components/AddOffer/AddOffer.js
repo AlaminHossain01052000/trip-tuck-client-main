@@ -7,7 +7,7 @@ const storage = getStorage()
 const AddOffer = () => {
     
     const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  // const [imageUrl, setImageUrl] = useState(null);
     const { register, handleSubmit, reset } = useForm();
     const handleImageChange = (event) => {
         setSelectedImage(event.target.files[0]);
@@ -22,7 +22,7 @@ const AddOffer = () => {
         try {
           await uploadBytes(imageRef, selectedImage);
           const url = await getDownloadURL(imageRef);
-          setImageUrl(url);
+          // setImageUrl(url);
           return url
           
         } catch (error) {
@@ -43,7 +43,7 @@ const AddOffer = () => {
           }
           else{
             data.img=url
-            fetch("http://localhost:5000/offers", {
+            fetch("https://trip-tuck-2-server.onrender.com/offers", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -65,7 +65,7 @@ const AddOffer = () => {
 
         }
         else{
-         await  fetch("http://localhost:5000/offers", {
+         await  fetch("https://trip-tuck-2-server.onrender.com/offers", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

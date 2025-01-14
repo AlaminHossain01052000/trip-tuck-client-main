@@ -15,7 +15,7 @@ const MyBookingCard = ({ myBookedOffer }) => {
         const sureDeleting = window.confirm("Are you sure want to cancel ? ");
         if (sureDeleting) {
 
-            fetch(`http://localhost:5000/bookings/${id}`, {
+            fetch(`https://trip-tuck-2-server.onrender.com/bookings/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

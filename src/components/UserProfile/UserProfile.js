@@ -19,7 +19,7 @@ const {forgetPassword,handleDeleteAccount,hanldeUserVerification}=useFirebase();
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/user/single?email=${user.email}`);
+        const response = await fetch(`https://trip-tuck-2-server.onrender.com/user/single?email=${user.email}`);
         const data = await response.json();
         
         setUserData(data);
@@ -40,7 +40,7 @@ const {forgetPassword,handleDeleteAccount,hanldeUserVerification}=useFirebase();
   const handleSave = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`http://localhost:5000/user/update/${userData._id}`, {
+      await fetch(`https://trip-tuck-2-server.onrender.com/user/update/${userData._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

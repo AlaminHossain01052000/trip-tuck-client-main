@@ -51,7 +51,7 @@ const useFirebase = () => {
 
                 });
 
-                fetch("http://localhost:5000/users", {
+                fetch("https://trip-tuck-2-server.onrender.com/users", {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -110,7 +110,7 @@ const useFirebase = () => {
                 setError("");
                 const newUser = { displayName: result.user.displayName, email: result.user.email };
 
-                fetch("http://localhost:5000/users", {
+                fetch("https://trip-tuck-2-server.onrender.com/users", {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -156,7 +156,7 @@ const useFirebase = () => {
         await deleteUser(auth.currentUser).then(async () => {
             // handleLogOut()
             try {
-                await fetch(`http://localhost:5000/users/${id}`, {
+                await fetch(`https://trip-tuck-2-server.onrender.com/users/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -25,7 +25,7 @@ const [bookingInfo,setBookingInfo]=useState({})
  
 
 useEffect(()=>{
-    fetch( `http://localhost:5000/bookings/singleBooking/${location.state}`).then(res=>res.json()).then(data=>setBookingInfo(data))
+    fetch( `https://trip-tuck-2-server.onrender.com/bookings/singleBooking/${location.state}`).then(res=>res.json()).then(data=>setBookingInfo(data))
     emailjs.init(emailJsKey);
 },[location.state])
   const handleSubmit = async (event) => {
@@ -64,7 +64,7 @@ useEffect(()=>{
       if(paymentMethod.id){
         try {
             
-            const response = await fetch(`http://localhost:5000/bookings/paymentStatus/${location.state}`, {
+            const response = await fetch(`https://trip-tuck-2-server.onrender.com/bookings/paymentStatus/${location.state}`, {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',

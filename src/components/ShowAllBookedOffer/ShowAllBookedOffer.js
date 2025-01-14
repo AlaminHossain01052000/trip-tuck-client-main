@@ -5,7 +5,7 @@ const ShowAllBookedOffer = (props) => {
     const [approvableTrip, setApprovableTrip] = useState({});
     const { _id, name, email, date, selectedOffer, totalCost, status,paymentStatus } = props.allBookedOffer;
     useEffect(() => {
-        fetch("http://localhost:5000/bookings")
+        fetch("https://trip-tuck-2-server.onrender.com/bookings")
             .then(res => res.json())
             .then(data => {
                 setBookings(data)
@@ -23,7 +23,7 @@ const ShowAllBookedOffer = (props) => {
         }
         approvableTrip.status = "approved";
 
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://trip-tuck-2-server.onrender.com/bookings/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -42,7 +42,7 @@ const ShowAllBookedOffer = (props) => {
     const handleDeletingBooking = id => {
         const isConfirmed = window.confirm("Are you sure want to delete ? ")
         if (isConfirmed) {
-            fetch(`http://localhost:5000/bookings/${id}`, {
+            fetch(`https://trip-tuck-2-server.onrender.com/bookings/${id}`, {
                 method: "delete"
             })
                 .then(res => res.json())
