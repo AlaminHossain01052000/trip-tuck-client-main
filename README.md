@@ -32,7 +32,13 @@ Create new offers with:
      - Description
 
 ---
-
+## Technology 
+- React js
+- React Router Dom
+- Stripe js
+- Email js
+- Firebase
+- Bootstrap
 ## Run in local computer
 - Open Command Prompt
 - Input the command "git clone https://github.com/AlaminHossain01052000/trip-tuck-client-main"
